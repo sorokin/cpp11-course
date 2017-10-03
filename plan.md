@@ -141,27 +141,40 @@
 * Кэши процессора, MESI, Store Buffer, Invalidate Queue и почему нужны барьеры памяти
 * `std::atomic` (`atomic_flag`) `std::memory_order`, почему `volatile` недостаточно
 * Корректный и оптимальный double checked locking singleton и почему в C++11 он не нужен (гарантия на инициализацию static local variable).
-* thread, mutex, lock_guard, future, promise, packaged_task, async
+* StdLib
+  * thread -- не забыть про деструктор
+  * mutex (recursive, shared, timed), lock_guard, 
+  * future, promise, packaged_task -- future довольно ущербен и как его исправлять пока консенсуса нет
+  * async -- не забыть про деструктор, надо пометить std::async как `[[nodiscard]]`
 
 _где граница между этой парой и следующей непонятно_
 
 ## Новые вещи в стандартной библитеке
 * emplace и move semantics везде, даже в std::pair
 * transparent comparator и heterogeneous lookup
-* `string_view` 
+* std::filesystem -- вот есть такой, очень кратко
+* std::chrono -- вот есть такой, очень кратко + UDL (стандартные и как писать свои)
+* `string_view`
    * конструирование от temporary string
-   * view на смуванную small-строку 
+   * view на смуванную small-строку
+   * забавный курьез: из перегрузок `foo(bool)` и `foo(string_view)` при вызове `foo("aba")` выберется первая, решение -- `foo("aba"sv)`
 * unordered containers и специализация `std::hash` для своей структуры
    * согласованность с `operator ==`
    * пессимизация из-за забытого `noexcept`
 * ranges уже сейчас -- boost или range-v3
 
+## Undefined behavior
+* Философия -- зачем вообще нужен если в Java его нет, а в C/C++ от него куча проблем
+* Strict aliasing
+* Sanitizers
+* **Important** C++17 change: "undefined behavior" -> "undefined behaviour"
+
 ## Философия работы со ссылками -- новый грабли, новые возможности
 * по умолчанию stl много чего принимает по значению (функторы, аргументы bind, ...) -- но есть `reference_wrapper`.
 * не владеющие типы -- `string_view` (может захватить temporary string) и `reference_wrapper` (не допускает prvalue).
 * параметры функции -- когда по ссылке, когда по значинию
-* реализуем vector::emplace_back правильно
-* реализуем vector::insert(range) правильно (_или пишем дома_?)
+* реализуем vector::emplace_back
+* реализуем vector::insert(range) (_или ДЗ_?)
 * реализуем range adaptor правильно (как в range-v3 а не как в boost.range)
 
 ## Всякая жуть и муть:
@@ -172,7 +185,6 @@ _где граница между этой парой и следующей не
     * `std::begin`
     * `std::end`
     * `std::size`
-* Undefined behavior
 * Initialization of class objects by rvalues  
 * Right angle brackets
 * Extern templates
@@ -182,7 +194,6 @@ _где граница между этой парой и следующей не
 * Unicode string literals
 * Raw string literals
 * Universal character name literals
-* User-defined literals
 * Standard Layout Types
 * Extending sizeof
 * Inline namespaces
