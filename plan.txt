@@ -31,6 +31,7 @@ Perfect-forwarding
     ! почитать http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf
 9. std::declval
 10. Правила поиска имен, trailing return type
+11. nullptr
 
 Вывод типов и анонимные функции
 1. auto
@@ -108,7 +109,7 @@ Small-object optimization and misc vocabulary types
     * Initializer lists
     * упомянуть про auto от {}
     * Aggregate initialization
-3. 
+4. 
 
 ~ Initialization of class objects by rvalues  
 ~ Static assertions
@@ -117,7 +118,6 @@ Small-object optimization and misc vocabulary types
 ~ Solving the SFINAE problem for expressions
 ~ Template aliases
 ~ Extern templates
-~ Null pointer constant
 ~ Generalized attributes
 ~ Generalized constant expressions
 ~ New character types
