@@ -98,6 +98,16 @@ Small-object optimization and misc vocabulary types
 9. Strongly-typed enums
 10. Forward declarations for enums
 
+Умные указатели
+1. unique_ptr
+2. shared_ptr
+    * custom deleter
+    * shared_ptr на члены-класса
+    * внутреннее устройство shared_ptr
+    * std::make_shared
+    * weak_ptr
+    * *_pointer_cast
+
 Всякая жуть и муть:
 1. Range-based for loop
     * auto&&
