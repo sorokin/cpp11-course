@@ -53,7 +53,7 @@
     * конверсия в указатель на функцию
 5. Вывод типа возвращаемого значения в лямбдах и в обычных функциях C++14
     * в темплейтных функциях
-    ! нужно ли до этого рассказать SFINAE? (а причем тут SFINAE?)
+    ! нужно ли до этого рассказать SFINAE? (_а причем тут SFINAE?_)
 
 ## Патерн type-erasure, runtime и compile-time полиморфизм
 1. `std::function`
@@ -107,7 +107,8 @@
     * внутреннее устройство `shared_ptr`
     * `std::make_shared`
     * `weak_ptr`
-    * замечание о том, что weak_ptr::expired racy и надо использовать weak_ptr::lock
+    * замечание о том, что `weak_ptr::expired` racy и надо использовать `weak_ptr::lock`
+    * коварный `std::enable_shared_for_this` -- отнаследуешься private и схлопочешь null pointer в runtime
     * *_pointer_cast
     
 ## Metaprogramming
