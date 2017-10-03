@@ -106,6 +106,7 @@ Small-object optimization and misc vocabulary types
     * внутреннее устройство shared_ptr
     * std::make_shared
     * weak_ptr
+    * замечание о том, что weak_ptr::expired racy и надо использовать weak_ptr::lock
     * *_pointer_cast
 
 Всякая жуть и муть:
