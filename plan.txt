@@ -100,7 +100,11 @@ Small-object optimization and misc vocabulary types
 1. Range-based for loop
     * auto&&
     * проблема итерации по контейнеру без &
-2. Uniform initialization
+2. Внешнии функции в интерфейсе контейнера
+    * std::begin
+    * std::end
+    * std::size
+3. Uniform initialization
     * Initializer lists
     * упомянуть про auto от {}
     * Aggregate initialization
