@@ -125,19 +125,25 @@
    * `if constexpr`
    * fold expressions
 
+## Uniform initialization
+### Какие задачи решали?
+* инициализация контейнеров так же кратно как встроенных массивов -- initializer lists
+* инициализация POD-структур как в С -- aggregate initialization
+  * designated initializers (C++2a)
+* неоднозначность грамматики: function delcaration / direct initialization
+### Что получилось?
+* инициализация контейнеров -- но ценой сложного overload resolution `vector(1, 2)` и `vector{1, 2}` дают разный результат.
+* инициализация POD-структур -- но не работает с forwarding-функциями (emplace, make, ...)
+* использовать {} при инициализации всегда -- работает, но очень сложно, куча puzzlers (мой любимый из свежего -- `vector<string> ss {{"aba", "caba"}}`). Нетривиальное взаимодействие с `auto`.
+
 ## Всякая жуть и муть:
-1. Range-based for loop
+* Range-based for loop
     * `auto &&`
     * проблема итерации по контейнеру без &
-2. Внешнии функции в интерфейсе контейнера
+* Внешнии функции в интерфейсе контейнера
     * `std::begin`
     * `std::end`
     * `std::size`
-3. Uniform initialization
-    * Initializer lists
-    * упомянуть про auto от {}
-    * Aggregate initialization
-
 * Undefined behavior
 * Упомянуть про emplace, emplace_{front,back}
 * Initialization of class objects by rvalues  
