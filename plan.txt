@@ -124,6 +124,7 @@ Small-object optimization and misc vocabulary types
     * Aggregate initialization
 4. 
 
+~ Упомянуть про emplace, emplace_{front,back}
 ~ Initialization of class objects by rvalues  
 ~ Static assertions
 ~ Right angle brackets
