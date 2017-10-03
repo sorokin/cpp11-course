@@ -82,7 +82,7 @@ Small-object optimization and misc vocabulary types
     ! structured binding (C++17)?
 
 Всякие полезности при написании классов
-1. Explicit override control
+1. Explicit override control, final classes
     * указать, что это context-sensitive keyword
 2. Defaulted and deleted functions
     * для конструкторов
