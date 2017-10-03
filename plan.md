@@ -1,4 +1,4 @@
-Rvalue-references
+## Rvalue-references
 1. Копирование объектов при возврате из функции
 2. Return value optimization (RVO)
 3. Named return value optimization (NRVO)
@@ -17,7 +17,7 @@ Rvalue-references
     ! xvalue/prvalue, продление времени жизни при бинде к rvalue-ссылке?
 11. сравнение с destructive move
 
-Perfect-forwarding
+## Perfect-forwarding
 1. Проблема perfect-fowarding
 2. Вывод параметров шаблона при использовании rvalue-ссылок
 3. Reference-collapsing rule
@@ -33,7 +33,7 @@ Perfect-forwarding
 10. Правила поиска имен, trailing return type
 11. nullptr
 
-Вывод типов и анонимные функции
+## Вывод типов и анонимные функции
 1. auto
     * вывод типа в случае наличия нескольких деклараторов
     * вывод при наличии ptr/ref деклараторов
@@ -55,7 +55,7 @@ Perfect-forwarding
     * в темплейтных функциях
     ! нужно ли до этого рассказать SFINAE?
 
-Патерн type-erasure, runtime и compile-time полиморфизм
+## Патерн type-erasure, runtime и compile-time полиморфизм
 1. std::function
 2. any_iterator
 3. std::any (C++17)
@@ -67,7 +67,7 @@ Perfect-forwarding
     * полезность при необходимости скопировать захватываемые данные
 7. Runtime и compile-time полиморфизм
 
-Small-object optimization and misc vocabulary types
+## Small-object optimization and misc vocabulary types
 1. Small-object optimization
     * для std::string
     * для std::function
@@ -81,7 +81,7 @@ Small-object optimization and misc vocabulary types
     * сравнение tuple со структурами
     ! structured binding (C++17)?
 
-Всякие полезности при написании классов
+## Всякие полезности при написании классов
 1. Explicit override control, final classes
     * указать, что это context-sensitive keyword
 2. Defaulted and deleted functions
@@ -98,7 +98,7 @@ Small-object optimization and misc vocabulary types
 9. Strongly-typed enums
 10. Forward declarations for enums
 
-Умные указатели
+## Умные указатели
 1. unique_ptr
     * unique_ptr pimpl?
 2. shared_ptr
@@ -110,7 +110,7 @@ Small-object optimization and misc vocabulary types
     * замечание о том, что weak_ptr::expired racy и надо использовать weak_ptr::lock
     * *_pointer_cast
 
-Всякая жуть и муть:
+## Всякая жуть и муть:
 1. Range-based for loop
     * auto&&
     * проблема итерации по контейнеру без &
@@ -122,25 +122,24 @@ Small-object optimization and misc vocabulary types
     * Initializer lists
     * упомянуть про auto от {}
     * Aggregate initialization
-4. 
 
-~ Undefined behavior
-~ Упомянуть про emplace, emplace_{front,back}
-~ Initialization of class objects by rvalues  
-~ Static assertions
-~ Right angle brackets
-~ Default template arguments for function templates
-~ Solving the SFINAE problem for expressions
-~ Template aliases
-~ Extern templates
-~ Generalized attributes
-~ Generalized constant expressions
-~ New character types
-~ Unicode string literals
-~ Raw string literals
-~ Universal character name literals
-~ User-defined literals
-~ Standard Layout Types
-~ Extending sizeof
-~ Inline namespaces
-~ Unrestricted unions
+* Undefined behavior
+* Упомянуть про emplace, emplace_{front,back}
+* Initialization of class objects by rvalues  
+* Static assertions
+* Right angle brackets
+* Default template arguments for function templates
+* Solving the SFINAE problem for expressions
+* Template aliases
+* Extern templates
+* Generalized attributes
+* Generalized constant expressions
+* New character types
+* Unicode string literals
+* Raw string literals
+* Universal character name literals
+* User-defined literals
+* Standard Layout Types
+* Extending sizeof
+* Inline namespaces
+* Unrestricted unions
