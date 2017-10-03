@@ -1,0 +1,127 @@
+Rvalue-references
+1. Копирование объектов при возврате из функции
+2. Return value optimization (RVO)
+3. Named return value optimization (NRVO)
+4. Копирование объектов при получении параметра функции по значению
+5. Понятие lvalue и rvalue
+6. Value category у аргумента и у результата у встроенных операторов (=, +=, +, ++, &, *)
+7. Проблема хранения в контейнерах non-copyable объектов и объектов с дорогим копированием
+8. Rvalue-references
+9. Соглашения по инспользованию rvalue-references, move-семантика
+10. std::move
+    * новое поведение std::swap
+    * тонкость с реализацией move-присваивание через swap, поскольку swap реализован через move
+    * требования на move-присваивание от *this
+    ! куда впихнуть && for *this?
+    ! noexcept?
+    ! xvalue/prvalue, продление времени жизни при бинде к rvalue-ссылке?
+11. сравнение с destructive move
+
+Perfect-forwarding
+1. Проблема perfect-fowarding
+2. Вывод параметров шаблона при использовании rvalue-ссылок
+3. Reference-collapsing rule
+4. std::forward
+5. Variadic templates
+    * expand сразу двух pack'ов
+    * для template template параметров http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2555.pdf
+6. Примеры использования perfect forwarding: emplace, emplace_{front,back}, make_{unique,shared,tuple}
+7. Возврат результата в при perfect-fowarding
+8. decltype
+    ! почитать http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf
+9. std::declval
+10. Правила поиска имен, trailing return type
+
+Вывод типов и анонимные функции
+1. auto
+    * вывод типа в случае наличия нескольких деклараторов
+    * вывод при наличии ptr/ref деклараторов
+    * вывод с rvalue-ссылками
+    * различия вывода auto и параметра шаблона
+    * decltype(auto) (C++14)
+2. Анонимные функции
+    * Local and unnamed types as template arguments
+3. Capture список в анонимных функциях
+    * Generalized lambda capture C++14
+    * проблема захвата this, в конструкторе, если параметр и
+      член-данных называются одинаково
+4. Свойства анонимных функций
+    * копируемость
+    * присваиваемость
+    * move-амость
+    * конверсия в указатель на функцию
+5. Вывод типа возвращаемого значения в лямбдах и в обычных функциях C++14
+    * в темплейтных функциях
+    ! нужно ли до этого рассказать SFINAE?
+
+Патерн type-erasure, runtime и compile-time полиморфизм
+1. std::function
+2. any_iterator
+3. std::any (C++17)
+4. any_range
+5. Boost.TypeErasure
+5. std::mem_fn
+    ! почитать http://cplusplus.github.io/LWG/lwg-defects.html#2048
+6. std::bind
+    * полезность при необходимости скопировать захватываемые данные
+7. Runtime и compile-time полиморфизм
+
+Small-object optimization and misc vocabulary types
+1. Small-object optimization
+    * для std::string
+    * для std::function
+2. std::optional (С++17)
+    ! включить сюда рассуждения про важность сохранения инварианта класса
+      и как хорошо, когда часть инварианта можно закодировать в типе
+3. std::aligned_storage
+4. Управление выравниванием (alignof, alignas)
+5. std::variant (C++17)
+6. std::tuple
+    * сравнение tuple со структурами
+    ! structured binding (C++17)?
+
+Всякие полезности при написании классов
+1. Explicit override control
+2. Defaulted and deleted functions
+    * для конструкторов
+    * пример с std::ref/std::cref
+3. Delegating constructors
+    * уточнение когда вызывается деструктор
+4. Inheriting constructors
+    * разные правила для C++11 и C++17
+5. Explicit conversion operators
+6. Extended friend declarations
+7. Non-static data member initializers
+8. Defining move special member functions
+9. Strongly-typed enums
+10. Forward declarations for enums
+
+Всякая жуть и муть:
+1. Range-based for loop
+    * auto&&
+    * проблема итерации по контейнеру без &
+2. Uniform initialization
+    * Initializer lists
+    * упомянуть про auto от {}
+    * Aggregate initialization
+3. 
+
+~ Initialization of class objects by rvalues  
+~ Static assertions
+~ Right angle brackets
+~ Default template arguments for function templates
+~ Solving the SFINAE problem for expressions
+~ Template aliases
+~ Extern templates
+~ Null pointer constant
+~ Generalized attributes
+~ Generalized constant expressions
+~ New character types
+~ Unicode string literals
+~ Raw string literals
+~ Universal character name literals
+~ User-defined literals
+~ Standard Layout Types
+~ Extending sizeof
+~ Inline namespaces
+~ Unrestricted unions
