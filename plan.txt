@@ -83,6 +83,7 @@ Small-object optimization and misc vocabulary types
 
 Всякие полезности при написании классов
 1. Explicit override control
+    * указать, что это context-sensitive keyword
 2. Defaulted and deleted functions
     * для конструкторов
     * пример с std::ref/std::cref
