@@ -69,7 +69,7 @@
 
 ## Small-object optimization and misc vocabulary types
 1. Small-object optimization
-    * для `std::string`
+    * для `std::string` (_давай еще расскажем, почему до move sematics и perfect forwarding COW-строки было разумной идеей?_)
     * для `std::function`
 2. `std::optional` (С++17)
     ! включить сюда рассуждения про важность сохранения инварианта класса
@@ -114,13 +114,14 @@
 ## Metaprogramming
 1. Template type aliases
 2. Template variables
-3. Static assertions
-4. Expression SFINAE
-5. Std type traits
-6. Constexpr functions
+3. Самый эффективный в смысле compilation time способ отсечься по SFINAE -- default template arguments, теперь и для function templates
+4. Static assertions
+5. Expression SFINAE
+6. Std type traits
+7. Constexpr functions
    * Разница с точки зрения компилятора между вычисление constexpr functions и variables -- значения последних кэшируются
-7. Пример использования -- вычисление аргумента `noexcept`
-8. Бонусы
+8. Пример использования -- вычисление аргумента `noexcept`
+9. Бонусы
    * `std::void_t`
    * `if constexpr`
    * fold expressions
@@ -134,7 +135,34 @@
 ### Что получилось?
 * инициализация контейнеров -- но ценой сложного overload resolution `vector(1, 2)` и `vector{1, 2}` дают разный результат.
 * инициализация POD-структур -- но не работает с forwarding-функциями (emplace, make, ...)
-* использовать {} при инициализации всегда -- работает, но очень сложно, куча puzzlers (мой любимый из свежего -- `vector<string> ss {{"aba", "caba"}}`). Нетривиальное взаимодействие с `auto`.
+* всегда использовать {} для инициализации -- работает, но очень сложно, куча puzzlers (мой любимый из свежего -- `vector<string> ss {{"aba", "caba"}}`). Нетривиальное взаимодействие с `auto`.
+
+## Multithreading
+* Кэши процессора, MESI, Store Buffer, Invalidate Queue и почему нужны барьеры памяти
+* `std::atomic` (`atomic_flag`) `std::memory_order`, почему `volatile` недостаточно
+* Корректный и оптимальный double checked locking singleton и почему в C++11 он не нужен (гарантия на инициализацию static local variable).
+* thread, mutex, lock_guard, future, promise, packaged_task, async
+
+_где граница между этой парой и следующей непонятно_
+
+## Новые вещи в стандартной библитеке
+* emplace и move semantics везде, даже в std::pair
+* transparent comparator и heterogeneous lookup
+* `string_view` 
+   * конструирование от temporary string
+   * view на смуванную small-строку 
+* unordered containers и специализация `std::hash` для своей структуры
+   * согласованность с `operator ==`
+   * пессимизация из-за забытого `noexcept`
+* ranges уже сейчас -- boost или range-v3
+
+## Философия работы со ссылками -- новый грабли, новые возможности
+* по умолчанию stl много чего принимает по значению (функторы, аргументы bind, ...) -- но есть `reference_wrapper`.
+* не владеющие типы -- `string_view` (может захватить temporary string) и `reference_wrapper` (не допускает prvalue).
+* параметры функции -- когда по ссылке, когда по значинию
+* реализуем vector::emplace_back правильно
+* реализуем vector::insert(range) правильно (_или пишем дома_?)
+* реализуем range adaptor правильно (как в range-v3 а не как в boost.range)
 
 ## Всякая жуть и муть:
 * Range-based for loop
@@ -145,10 +173,8 @@
     * `std::end`
     * `std::size`
 * Undefined behavior
-* Упомянуть про emplace, emplace_{front,back}
 * Initialization of class objects by rvalues  
 * Right angle brackets
-* Default template arguments for function templates
 * Extern templates
 * Generalized attributes
 * Generalized constant expressions
