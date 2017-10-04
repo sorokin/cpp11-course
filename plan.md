@@ -143,7 +143,7 @@
     * `vector<string> ss {{"aba", "caba"}}`
     * Нетривиальное взаимодействие с `auto`
 
-## Новые вещи в стандартной библитеке
+## Расширения стандартной библитеке
 * emplace и move semantics везде, даже в std::pair
 * transparent comparator и heterogeneous lookup
 * std::filesystem -- вот есть такой, очень кратко
