@@ -29,7 +29,7 @@
 7. Возврат результата в при perfect-fowarding
 8. decltype
     ! почитать http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf
-9. `std::declval` (он тут нужен, или рассказать о нем в [секции "Metaprogramming"](#metaprogramming)?)
+9. `std::declval`
 10. Правила поиска имен, trailing return type
 11. `nullptr`
 
@@ -53,7 +53,7 @@
     * конверсия в указатель на функцию
 5. Вывод типа возвращаемого значения в лямбдах и в обычных функциях C++14
     * в темплейтных функциях
-    ! нужно ли до этого рассказать SFINAE? (_а причем тут SFINAE?_)
+    * упомянуть про SFINAE
 
 ## Патерн type-erasure, runtime и compile-time полиморфизм
 1. `std::function`
@@ -69,8 +69,10 @@
 
 ## Small-object optimization and misc vocabulary types
 1. Small-object optimization
-    * для `std::string` (_давай еще расскажем, почему до move sematics и perfect forwarding COW-строки было разумной идеей?_)
+    * для `std::string`
     * для `std::function`
+2. Copy-on-write optimization
+    * для строк в GCC до C++11
 2. `std::optional` (С++17)
     ! включить сюда рассуждения про важность сохранения инварианта класса
       и как хорошо, когда часть инварианта можно закодировать в типе
@@ -79,7 +81,8 @@
 5. `std::variant` (C++17)
 6. `std::tuple`
     * сравнение tuple со структурами
-    ! structured binding (C++17)?
+    * structured binding (C++17)
+    * изменение value-category при return переменных при structured binding'е
 
 ## Всякие полезности при написании классов
 1. Explicit override control, final classes
@@ -108,7 +111,7 @@
     * `std::make_shared`
     * `weak_ptr`
     * замечание о том, что `weak_ptr::expired` racy и надо использовать `weak_ptr::lock`
-    * коварный `std::enable_shared_for_this` -- отнаследуешься private и схлопочешь null pointer в runtime
+    * pitfall: private inheritance from `std::enable_shared_for_this`
     * *_pointer_cast
     
 ## Metaprogramming
@@ -164,10 +167,15 @@ _где граница между этой парой и следующей не
 * ranges уже сейчас -- boost или range-v3
 
 ## Undefined behavior
-* Философия -- зачем вообще нужен если в Java его нет, а в C/C++ от него куча проблем
-* Strict aliasing
-* Sanitizers
-* **Important** C++17 change: "undefined behavior" -> "undefined behaviour"
+1. Пример с sum,
+2. Пример с memcpy
+3. Ключевое слово restrict
+4. Понятие undefined behavior
+5. Виды undefined behavior
+    * для целых чисел
+    * для указателей
+    * strict aliasing rule
+6. Sanitizers
 
 ## Философия работы со ссылками -- новый грабли, новые возможности
 * по умолчанию stl много чего принимает по значению (функторы, аргументы bind, ...) -- но есть `reference_wrapper`.
