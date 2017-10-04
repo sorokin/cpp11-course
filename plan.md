@@ -143,18 +143,6 @@
     * `vector<string> ss {{"aba", "caba"}}`
     * Нетривиальное взаимодействие с `auto`
 
-## Multithreading
-* Кэши процессора, MESI, Store Buffer, Invalidate Queue и почему нужны барьеры памяти
-* `std::atomic` (`atomic_flag`) `std::memory_order`, почему `volatile` недостаточно
-* Корректный и оптимальный double checked locking singleton и почему в C++11 он не нужен (гарантия на инициализацию static local variable).
-* StdLib
-  * thread -- не забыть про деструктор
-  * mutex (recursive, shared, timed), lock_guard, 
-  * future, promise, packaged_task -- future довольно ущербен и как его исправлять пока консенсуса нет
-  * async -- не забыть про деструктор, надо пометить std::async как `[[nodiscard]]`
-
-_где граница между этой парой и следующей непонятно_
-
 ## Новые вещи в стандартной библитеке
 * emplace и move semantics везде, даже в std::pair
 * transparent comparator и heterogeneous lookup
@@ -209,3 +197,13 @@ _где граница между этой парой и следующей не
 * Extending sizeof
 * Inline namespaces
 * Unrestricted unions
+
+## Multithreading
+* Кэши процессора, MESI, Store Buffer, Invalidate Queue и почему нужны барьеры памяти
+* `std::atomic` (`atomic_flag`) `std::memory_order`, почему `volatile` недостаточно
+* Корректный и оптимальный double checked locking singleton и почему в C++11 он не нужен (гарантия на инициализацию static local variable).
+* StdLib
+  * thread -- не забыть про деструктор
+  * mutex (recursive, shared, timed), lock_guard, 
+  * future, promise, packaged_task -- future довольно ущербен и как его исправлять пока консенсуса нет
+  * async -- не забыть про деструктор, надо пометить std::async как `[[nodiscard]]`
