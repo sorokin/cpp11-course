@@ -130,15 +130,18 @@
    * fold expressions
 
 ## Uniform initialization
-### Какие задачи решали?
-* инициализация контейнеров так же кратно как встроенных массивов -- initializer lists
-* инициализация POD-структур как в С -- aggregate initialization
-  * designated initializers (C++2a)
-* неоднозначность грамматики: function delcaration / direct initialization
-### Что получилось?
-* инициализация контейнеров -- но ценой сложного overload resolution `vector(1, 2)` и `vector{1, 2}` дают разный результат.
-* инициализация POD-структур -- но не работает с forwarding-функциями (emplace, make, ...)
-* всегда использовать {} для инициализации -- работает, но очень сложно, куча puzzlers (мой любимый из свежего -- `vector<string> ss {{"aba", "caba"}}`). Нетривиальное взаимодействие с `auto`.
+* Решаемые задачи
+    * инициализация контейнеров так же кратно как встроенных массивов -- initializer lists
+    * инициализация POD-структур как в С -- aggregate initialization
+    * designated initializers (C++2a)
+    * неоднозначность грамматики: function delcaration / direct initialization
+* Инициализация контейнеров
+    * разный результат для `vector(1, 2)` и `vector{1, 2}`
+* Инициализация POD-структур
+    * не работает с forwarding-функциями (emplace, make, ...)
+* Использование {} для инициализации
+    * `vector<string> ss {{"aba", "caba"}}`
+    * Нетривиальное взаимодействие с `auto`
 
 ## Multithreading
 * Кэши процессора, MESI, Store Buffer, Invalidate Queue и почему нужны барьеры памяти
