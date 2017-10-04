@@ -139,7 +139,7 @@
 5. Expression SFINAE
 6. Std type traits
 7. Constexpr functions
-   * Разница с точки зрения компилятора между вычисление constexpr functions и variables -- значения последних кэшируются
+   * Разница с точки зрения компилятора между вычислением constexpr functions и variables -- значения последних кэшируются
 8. Пример использования -- вычисление аргумента `noexcept`
 9. Бонусы
    * `std::void_t`
