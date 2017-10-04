@@ -103,7 +103,6 @@
 
 ## Умные указатели
 1. `unique_ptr`
-    * unique_ptr pimpl?
 2. `shared_ptr`
     * custom deleter
     * shared_ptr на члены-класса
@@ -113,6 +112,7 @@
     * замечание о том, что `weak_ptr::expired` racy и надо использовать `weak_ptr::lock`
     * pitfall: private inheritance from `std::enable_shared_for_this`
     * *_pointer_cast
+3. pimpl используя `unique_ptr` и `shared_ptr`
     
 ## Metaprogramming
 1. Template type aliases
