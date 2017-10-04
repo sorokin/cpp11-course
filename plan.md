@@ -63,7 +63,7 @@
 5. Boost.TypeErasure
 5. `std::mem_fn`
     * http://cplusplus.github.io/LWG/lwg-defects.html#2048
-6.` std::bind`
+6. `std::bind`
     * полезность при необходимости скопировать захватываемые данные
 7. Runtime и compile-time полиморфизм
 
