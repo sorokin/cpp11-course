@@ -28,7 +28,7 @@
 6. Примеры использования perfect forwarding: `emplace`, `emplace_{front,back}`, `make_{unique,shared,tuple}`
 7. Возврат результата в при perfect-fowarding
 8. decltype
-    ! почитать http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf
+    * http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2011/n3276.pdf
 9. `std::declval`
 10. Правила поиска имен, trailing return type
 11. `nullptr`
@@ -62,7 +62,7 @@
 3. `std::any` (C++17)
 5. Boost.TypeErasure
 5. `std::mem_fn`
-    ! почитать http://cplusplus.github.io/LWG/lwg-defects.html#2048
+    * http://cplusplus.github.io/LWG/lwg-defects.html#2048
 6.` std::bind`
     * полезность при необходимости скопировать захватываемые данные
 7. Runtime и compile-time полиморфизм
