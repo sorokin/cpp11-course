@@ -1,4 +1,4 @@
-## Rvalue-references
+## Rvalue-references (2 пары)
 1. Копирование объектов при возврате из функции
 2. Return value optimization (RVO)
 3. Named return value optimization (NRVO)
@@ -17,7 +17,7 @@
     ! xvalue/prvalue, продление времени жизни при бинде к rvalue-ссылке?
 11. сравнение с destructive move
 
-## Perfect-forwarding
+## Perfect-forwarding (2 пары)
 1. Проблема perfect-fowarding
 2. Вывод параметров шаблона при использовании rvalue-ссылок
 3. Reference-collapsing rule
@@ -33,7 +33,7 @@
 10. Правила поиска имен, trailing return type
 11. `nullptr`
 
-## Вывод типов и анонимные функции
+## Вывод типов и анонимные функции (1 пара)
 1. auto
     * вывод типа в случае наличия нескольких деклараторов
     * вывод при наличии ptr/ref деклараторов
@@ -55,7 +55,7 @@
     * в темплейтных функциях
     * упомянуть про SFINAE
 
-## Патерн type-erasure, runtime и compile-time полиморфизм
+## Патерн type-erasure, runtime и compile-time полиморфизм (1 пара)
 1. `std::function`
 2. `any_iterator`
 4. `any_range`
@@ -67,7 +67,7 @@
     * полезность при необходимости скопировать захватываемые данные
 7. Runtime и compile-time полиморфизм
 
-## Small-object optimization and misc vocabulary types
+## Small-object optimization and misc vocabulary types (1 пара)
 1. Small-object optimization
     * для `std::string`
     * для `std::function`
@@ -76,6 +76,7 @@
 2. `std::optional` (С++17)
     ! включить сюда рассуждения про важность сохранения инварианта класса
       и как хорошо, когда часть инварианта можно закодировать в типе
+3. Unrestricted unions
 3. `std::aligned_storage`
 4. Управление выравниванием (alignof, alignas)
 5. `std::variant` (C++17)
@@ -84,7 +85,7 @@
     * structured binding (C++17)
     * изменение value-category при return переменных при structured binding'е
 
-## Всякие полезности при написании классов
+## Всякие полезности при написании классов (1 пара)
 1. Explicit override control, final classes
     * указать, что это context-sensitive keyword
 2. Defaulted and deleted functions
@@ -100,8 +101,10 @@
 8. Defining move special member functions
 9. Strongly-typed enums
 10. Forward declarations for enums
+11. Inline namespaces
+12. Nested namespace definition
 
-## Умные указатели
+## Умные указатели (1 пара)
 1. `unique_ptr`
 2. `shared_ptr`
     * custom deleter
@@ -113,23 +116,8 @@
     * pitfall: private inheritance from `std::enable_shared_for_this`
     * *_pointer_cast
 3. pimpl используя `unique_ptr` и `shared_ptr`
-    
-## Metaprogramming
-1. Template type aliases
-2. Template variables
-3. Самый эффективный в смысле compilation time способ отсечься по SFINAE -- default template arguments, теперь и для function templates
-4. Static assertions
-5. Expression SFINAE
-6. Std type traits
-7. Constexpr functions
-   * Разница с точки зрения компилятора между вычисление constexpr functions и variables -- значения последних кэшируются
-8. Пример использования -- вычисление аргумента `noexcept`
-9. Бонусы
-   * `std::void_t`
-   * `if constexpr`
-   * fold expressions
 
-## Uniform initialization
+## Uniform initialization (1 пара)
 * Решаемые задачи
     * инициализация контейнеров так же кратно как встроенных массивов -- initializer lists
     * инициализация POD-структур как в С -- aggregate initialization
@@ -143,7 +131,23 @@
     * `vector<string> ss {{"aba", "caba"}}`
     * Нетривиальное взаимодействие с `auto`
 
-## Расширения стандартной библитеке
+## Metaprogramming (2 пары)
+1. Template type aliases
+2. Template variables
+3. Самый эффективный в смысле compilation time способ отсечься по SFINAE -- default template arguments, теперь и для function templates
+4. Static assertions
+5. Expression SFINAE
+6. Std type traits
+7. Constexpr functions
+   * Разница с точки зрения компилятора между вычисление constexpr functions и variables -- значения последних кэшируются
+8. Пример использования -- вычисление аргумента `noexcept`
+9. Бонусы
+   * `std::void_t`
+   * `if constexpr`
+   * fold expressions
+10. Явное инстанцирование темплейтов и подавление инстанцирования
+
+## Расширения стандартной библитеки (2 пары)
 * emplace и move semantics везде, даже в std::pair
 * transparent comparator и heterogeneous lookup
 * std::filesystem -- вот есть такой, очень кратко
@@ -155,6 +159,13 @@
 * unordered containers и специализация `std::hash` для своей структуры
    * согласованность с `operator ==`
    * пессимизация из-за забытого `noexcept`
+* Внешнии функции в интерфейсе контейнера
+    * `std::begin`
+    * `std::end`
+    * `std::size`
+* Range-based for loop
+    * `auto &&`
+    * проблема итерации по контейнеру без &
 * Ranges
 * не владеющие типы `reference_wrapper`, `string_view`
 * когда передавать параметры функции по ссылке, а когда по значению
@@ -162,7 +173,7 @@
 * реализуем vector::insert(range)
 * реализуем range adaptor правильно (как в range-v3, а не как в boost.range)
 
-## Undefined behavior
+## Undefined behavior (1 пара)
 1. Пример с sum,
 2. Пример с memcpy
 3. Ключевое слово restrict
@@ -172,35 +183,3 @@
     * для указателей
     * strict aliasing rule
 6. Sanitizers
-
-## Всякая жуть и муть:
-* Range-based for loop
-    * `auto &&`
-    * проблема итерации по контейнеру без &
-* Внешнии функции в интерфейсе контейнера
-    * `std::begin`
-    * `std::end`
-    * `std::size`
-* Initialization of class objects by rvalues  
-* Right angle brackets
-* Extern templates
-* Generalized attributes
-* Generalized constant expressions
-* New character types
-* Unicode string literals
-* Raw string literals
-* Universal character name literals
-* Standard Layout Types
-* Extending sizeof
-* Inline namespaces
-* Unrestricted unions
-
-## Multithreading
-* Кэши процессора, MESI, Store Buffer, Invalidate Queue и почему нужны барьеры памяти
-* `std::atomic` (`atomic_flag`) `std::memory_order`, почему `volatile` недостаточно
-* Корректный и оптимальный double checked locking singleton и почему в C++11 он не нужен (гарантия на инициализацию static local variable).
-* StdLib
-  * thread -- не забыть про деструктор
-  * mutex (recursive, shared, timed), lock_guard, 
-  * future, promise, packaged_task -- future довольно ущербен и как его исправлять пока консенсуса нет
-  * async -- не забыть про деструктор, надо пометить std::async как `[[nodiscard]]`
