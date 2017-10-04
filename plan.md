@@ -155,7 +155,12 @@
 * unordered containers и специализация `std::hash` для своей структуры
    * согласованность с `operator ==`
    * пессимизация из-за забытого `noexcept`
-* ranges уже сейчас -- boost или range-v3
+* Ranges
+* не владеющие типы `reference_wrapper`, `string_view`
+* когда передавать параметры функции по ссылке, а когда по значению
+* реализуем vector::emplace_back
+* реализуем vector::insert(range)
+* реализуем range adaptor правильно (как в range-v3, а не как в boost.range)
 
 ## Undefined behavior
 1. Пример с sum,
@@ -167,14 +172,6 @@
     * для указателей
     * strict aliasing rule
 6. Sanitizers
-
-## Философия работы со ссылками -- новый грабли, новые возможности
-* по умолчанию stl много чего принимает по значению (функторы, аргументы bind, ...) -- но есть `reference_wrapper`.
-* не владеющие типы -- `string_view` (может захватить temporary string) и `reference_wrapper` (не допускает prvalue).
-* параметры функции -- когда по ссылке, когда по значинию
-* реализуем vector::emplace_back
-* реализуем vector::insert(range) (_или ДЗ_?)
-* реализуем range adaptor правильно (как в range-v3 а не как в boost.range)
 
 ## Всякая жуть и муть:
 * Range-based for loop
