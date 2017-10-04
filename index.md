@@ -12,9 +12,9 @@
     * новое поведение `std::swap`
     * тонкость с реализацией move-присваивание через swap, поскольку swap реализован через move
     * требования на move-присваивание от `*this`
-    ! куда впихнуть && for *this?
-    ! noexcept?
-    ! xvalue/prvalue, продление времени жизни при бинде к rvalue-ссылке?
+    * rvalue references for *this
+    * noexcept
+    * xvalue/prvalue, продление времени жизни при бинде к rvalue-ссылке
 11. сравнение с destructive move
 
 ## Perfect-forwarding (2 пары)
