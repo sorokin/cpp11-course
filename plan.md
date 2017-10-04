@@ -174,7 +174,7 @@
 * реализуем range adaptor правильно (как в range-v3, а не как в boost.range)
 
 ## Undefined behavior (1 пара)
-1. Пример с sum,
+1. Пример с sum
 2. Пример с memcpy
 3. Ключевое слово restrict
 4. Понятие undefined behavior
