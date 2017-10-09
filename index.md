@@ -55,7 +55,7 @@
     * в темплейтных функциях
     * упомянуть про SFINAE
 
-## Патерн type-erasure, runtime и compile-time полиморфизм (1 пара)
+## Паттерн type-erasure, runtime и compile-time полиморфизм (1 пара)
 1. `std::function`
 2. `any_iterator`
 4. `any_range`
