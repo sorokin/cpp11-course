@@ -122,7 +122,7 @@
     * инициализация контейнеров так же кратно как встроенных массивов -- initializer lists
     * инициализация POD-структур как в С -- aggregate initialization
     * designated initializers (C++2a)
-    * неоднозначность грамматики: function delcaration / direct initialization
+    * неоднозначность грамматики: function declaration / direct initialization
 * Инициализация контейнеров
     * разный результат для `vector(1, 2)` и `vector{1, 2}`
 * Инициализация POD-структур
