@@ -183,3 +183,9 @@
     * для указателей
     * strict aliasing rule
 6. Sanitizers
+7. Fuzz-testing
+    * Уровни fuzzing'а
+    * Mutation-based fuzzing
+    * Control-flow guided (coverage-based) fuzzing
+    * aflfuzz
+    * LLVMFuzzer
