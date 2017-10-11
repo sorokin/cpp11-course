@@ -147,7 +147,7 @@
    * fold expressions
 10. Явное инстанцирование темплейтов и подавление инстанцирования
 
-## Расширения стандартной библитеки (2 пары)
+## Расширения стандартной библиотеки (2 пары)
 * emplace и move semantics везде, даже в std::pair
 * transparent comparator и heterogeneous lookup
 * std::filesystem -- вот есть такой, очень кратко
